@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение квадратного уравнения</title>
+</head>
+<body>
+    <b>Решение квадратного уравнения</b><br>
+    <i>ax<sup>2</sup> + bx + c = 0</i><br>
+    <br>
+    Ваши значения <i>a</i>, <i>b</i>, <i>c</i>: <b>{{ request.session.a_coef }}</b>;
+    <b>{{ request.session.b_coef }}</b>; <b>{{ request.session.c_coef }}</b><br>
+    Ваше уравнение:
+    <i>{{ request.session.a_coef }}x<sup>2</sup> + {{ request.session.b_coef }}x + {{ request.session.c_coef }} = 0</i><br>
+    Дискриминант: {{ request.session.discr }} </br>
+    {% if request.session.discr > 0 %}
+    Первый корень: {{ request.session.x1 }} </br>
+    Второй корень: {{ request.session.x2 }} </br>
+    {% elif request.session.discr == 0 %}
+    Корень: {{ request.session.x }}
+    {% else %}
+    <b>Корней нет!</b>
+    {% endif %}
+</body>
+</html>
